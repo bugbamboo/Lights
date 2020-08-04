@@ -1,0 +1,28 @@
+#include <Servo.h>
+int de = 300;
+Servo myservo;
+void setup() {
+   Serial.begin(9600);
+   myservo.attach(6); 
+myservo.write(89);
+   }
+
+void loop(){
+  if(Serial.available()>0){
+    int a = Serial.read();
+    if(a=='O'){
+      myservo.write(179);
+      delay(de);
+      myservo.write(89);
+    }
+    else if(a=='F'){
+      myservo.write(1);
+      delay(de);
+      myservo.write(89);
+    }
+    
+    
+  }
+ 
+  
+}
